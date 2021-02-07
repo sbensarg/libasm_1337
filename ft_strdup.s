@@ -8,7 +8,6 @@ _ft_strdup:
             call _ft_strlen
             mov rdi, rax
             call _malloc
-            ; if malloc returned NULL, je error
             cmp rax, 0
             je exit
             mov rdi, rax
@@ -16,10 +15,8 @@ _ft_strdup:
             call _ft_strcpy
             ret
 exit:
-            push rax
             call ___error
-            mov rcx, rax
-            pop rax
-            mov [rcx], rax
-            mov rax, -1
+            mov rax, 12
+            mov [rax], rcx
+            mov rax, 0
             ret
