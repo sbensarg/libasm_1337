@@ -1,19 +1,3 @@
-;global _ft_strcpy
-
-;_ft_strcpy:
-    ;mov rax , rdi
-;ft_strcpy:
-    ;cmp byte [rsi] , 0
-    ;je exit
-    ;mov cl , byte [rsi]
-    ;mov byte [rdi] ,cl
-    ;inc rsi
-    ;inc rdi
-    ;jmp ft_strcpy
-;exit:
-    ;mov byte [rdi] ,   0
-    ;ret
-
 extern _ft_strlen
 global _ft_strcpy
 

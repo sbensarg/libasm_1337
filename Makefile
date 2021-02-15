@@ -6,25 +6,26 @@
 #    By: sbensarg <sbensarg@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/02 16:46:56 by sbensarg          #+#    #+#              #
-#    Updated: 2021/02/07 15:29:27 by sbensarg         ###   ########.fr        #
+#    Updated: 2021/02/10 14:53:06 by sbensarg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= libasm.a
 SRCS= ft_strlen.s ft_strcpy.s ft_strcmp.s ft_strdup.s ft_write.s ft_read.s
+OBJS= $(SRCS:.s=.o)
 NASM= nasm
 CC= gcc
 NASMFLAGS= -fmacho64
-CFLAGS= -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(NASM)
-		#$(CC) $(CFLAGS) *.o main.c 
-		ar -rc libasm.a *.o
+$(NAME): $(OBJS)
+		ar rc $(NAME) $^
 		ranlib libasm.a	
-$(NASM):
-	$(foreach var,$(SRCS),$(NASM) $(NASMFLAGS) $(var) -o $(var:.s=.o);)
+
+%.o: %.s
+	nasm -f macho64 $<
+
 clean:
 	rm -f *.o
 

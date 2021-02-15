@@ -1,4 +1,3 @@
-
 extern  ___error
 global _ft_write
 

@@ -9,7 +9,7 @@ fnct:
             cmp cl, 0
             jne lmao
             jmp nequal
-lmao:
+lmao: 
             cmp cl, bl
             jne nequal
             inc r12
